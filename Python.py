@@ -1,2 +1,2 @@
-my_string = "Hello Omer Abdullah Python Project Complete"
+my_string = "Hello Omer Abdullah Software Developer"
 print(my_string)
