@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM python:3-slim
 
 # Creating Application Source Code Directory
 RUN mkdir -p /usr/src/app
@@ -7,21 +7,19 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Installing python dependencies
-COPY requirements.txt /usr/src/app/
-RUN pip install --no-cache-dir -r requirements.txt
 
 # Copying src code to Container
 COPY . /usr/src/app
 
 # Application Environment variables
+
 #ENV APP_ENV development
-ENV PORT 8080
+Run pip install flask 
 
 # Exposing Ports
-EXPOSE $PORT
+EXPOSE 5000
 
 # Setting Persistent data
-VOLUME ["/app-data"]
 
 # Running Python Application
-CMD gunicorn -b :$PORT -c gunicorn.conf.py main:app
+CMD ["python","python.py"]
